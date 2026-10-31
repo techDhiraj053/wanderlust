@@ -37,43 +37,39 @@
 </style>
 <!-- filters -->
 <div id="filters">
-  <a class="filter" href="/listings">
-    <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
-  </a>
-  <a class="filter" href="/listings?q=room">
+  <a class="filter" href="/listings?category=Rooms">
     <div><i class="fa-solid fa-bed"></i></div>
     <p>Rooms</p>
   </a>
-  <a class="filter" href="/listings?q=city">
+  <a class="filter" href="/listings?category=Iconic%20Cities">
     <div><i class="fa-solid fa-mountain-city"></i></div>
     <p>Iconic Cities</p>
   </a>
-  <a class="filter" href="/listings?q=mountain">
+  <a class="filter" href="/listings?category=Mountains">
     <div><i class="fa-solid fa-mountain"></i></div>
     <p>Mountains</p>
   </a>
-  <a class="filter" href="/listings?q=castle">
+  <a class="filter" href="/listings?category=Castles">
     <div><i class="fa-brands fa-fort-awesome"></i></div>
     <p>Castles</p>
   </a>
-  <a class="filter" href="/listings?q=pool">
+  <a class="filter" href="/listings?category=Amazing%20Pools">
     <div><i class="fa-solid fa-person-swimming"></i></div>
     <p>Amazing Pools</p>
   </a>
-  <a class="filter" href="/listings?q=camp">
+  <a class="filter" href="/listings?category=Camping">
     <div><i class="fa-solid fa-campground"></i></div>
     <p>Camping</p>
   </a>
-  <a class="filter" href="/listings?q=farm">
+  <a class="filter" href="/listings?category=Farms">
     <div><i class="fa-solid fa-cow"></i></div>
     <p>Farms</p>
   </a>
-  <a class="filter" href="/listings?q=snow">
+  <a class="filter" href="/listings?category=Arctic">
     <div><i class="fa-solid fa-snowflake"></i></div>
     <p>Arctic</p>
   </a>
-  <a class="filter" href="/listings?q=breakfast">
+  <a class="filter" href="/listings?category=Bed%20%26%20breakfasts">
     <div><i class="fa-solid fa-mug-hot"></i></div>
     <p>Bed & breakfasts</p>
   </a>
@@ -100,18 +96,20 @@
   </div>
 </div>
 <!-- Cards -->
-<% if (q) { %>
+<% if (q || category) { %>
 <div class="mt-3">
   <h5>
-    Showing results for "<%= q %>" (<%= allListings.length %>
+    Showing results for "<%= q || category %>" (<%= allListings.length %>
     found)
   </h5>
   <a href="/listings">Clear search</a>
 </div>
 
 <% } %>
-<% if(q && allListings.length === 0){ %>
-<p class="mt-4">No stays found for "<%= q %>", Try another destination.</p>
+<% if((q || category) && allListings.length === 0){ %>
+<p class="mt-4">
+  No stays found for "<%= q || category %>", Try another destination.
+</p>
 <% } %>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-3">
   <% for(let listing of allListings) { %>

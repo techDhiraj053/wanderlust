@@ -5,11 +5,12 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 //Index
 module.exports.index = async (req, res) => {
-  const { q } = req.query;
+  const { q, category } = req.query;
   let filter = {};
-  if (q && q.trim() !== "") {
-    const safeQ = q.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const regex = new RegExp(safeQ, "i");
+  if (category) {
+    filter = { category };
+  } else if (q) {
+    const regex = new RegExp(escapeRegex(q), "i");
     filter = {
       $or: [
         { title: regex },
@@ -20,7 +21,7 @@ module.exports.index = async (req, res) => {
     };
   }
   const allListings = await Listing.find(filter);
-  res.render("listings/index.ejs", { allListings, q: q || "" });
+  res.render("listings/index.ejs", { allListings, q, category });
 };
 
 //New
