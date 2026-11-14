@@ -13,16 +13,12 @@
     color: inherit;
     text-decoration: none;
   }
-  .filter:hover {
-    color: #fe424d;
-    cursor: pointer;
-  }
   .filter p {
     font-size: 0.8rem;
   }
   .info-tax {
     display: none;
-    color: #fe424d;
+    color: #eb7c22;
   }
 
   .tax-toggle {
@@ -37,39 +33,39 @@
 </style>
 <!-- filters -->
 <div id="filters">
-  <a class="filter" href="/listings?category=Rooms">
+  <a class="filter <%= category === 'Rooms' ? 'active' : '' %>" href="/listings?category=Rooms">
     <div><i class="fa-solid fa-bed"></i></div>
     <p>Rooms</p>
   </a>
-  <a class="filter" href="/listings?category=Iconic%20Cities">
+  <a class="filter <%= category === 'Iconic Cities' ? 'active' : '' %>" href="/listings?category=Iconic%20Cities">
     <div><i class="fa-solid fa-mountain-city"></i></div>
     <p>Iconic Cities</p>
   </a>
-  <a class="filter" href="/listings?category=Mountains">
+  <a class="filter <%= category === 'Mountains' ? 'active' : '' %>" href="/listings?category=Mountains">
     <div><i class="fa-solid fa-mountain"></i></div>
     <p>Mountains</p>
   </a>
-  <a class="filter" href="/listings?category=Castles">
+  <a class="filter <%= category === 'Castles' ? 'active' : '' %>" href="/listings?category=Castles">
     <div><i class="fa-brands fa-fort-awesome"></i></div>
     <p>Castles</p>
   </a>
-  <a class="filter" href="/listings?category=Amazing%20Pools">
+  <a class="filter <%= category === 'Amazing Pools' ? 'active' : '' %>" href="/listings?category=Amazing%20Pools">
     <div><i class="fa-solid fa-person-swimming"></i></div>
     <p>Amazing Pools</p>
   </a>
-  <a class="filter" href="/listings?category=Camping">
+  <a class="filter <%= category === 'Camping' ? 'active' : '' %>" href="/listings?category=Camping">
     <div><i class="fa-solid fa-campground"></i></div>
     <p>Camping</p>
   </a>
-  <a class="filter" href="/listings?category=Farms">
+  <a class="filter <%= category === 'Farms' ? 'active' : '' %>" href="/listings?category=Farms">
     <div><i class="fa-solid fa-cow"></i></div>
     <p>Farms</p>
   </a>
-  <a class="filter" href="/listings?category=Arctic">
+  <a class="filter <%= category === 'Arctic' ? 'active' : '' %>" href="/listings?category=Arctic">
     <div><i class="fa-solid fa-snowflake"></i></div>
     <p>Arctic</p>
   </a>
-  <a class="filter" href="/listings?category=Bed%20%26%20breakfasts">
+  <a class="filter <%= category === 'Bed & breakfasts' ? 'active' : '' %>" href="/listings?category=Bed%20%26%20breakfasts">
     <div><i class="fa-solid fa-mug-hot"></i></div>
     <p>Bed & breakfasts</p>
   </a>
