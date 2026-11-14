@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #f8f6f0b6 !important;
 }
 
 .container {
@@ -90,10 +91,22 @@ body {
   border: none !important;
   margin-bottom: 2rem;
   width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.listing-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  background-color: #f0e6d5;
 }
 
 .card-img-top {
-  border-radius: 1rem !important;
+ border-radius: 0.5rem 0.5rem 0 0 !important;
   width: 100% !important;
   height: 18rem; /* Desktop fixed height */
   object-fit: cover !important;
@@ -101,21 +114,24 @@ body {
 
 .card-body {
   padding: 0 !important;
+  transition: background-color 0.3s ease;
+}
+.card-text {
+  padding: 0.2rem 0 0.3rem 0;
+  transition: transform 0.3s ease;
+}
+.listing-card:hover .card-text {
+  transform: translateX(0.75rem);
+  
+  
 }
 
 .listing-link {
   text-decoration: none;
 }
-
-.card-img-overlay {
-  opacity: 0;
+.listing-card:hover .card-body {
+  background-color: #f6efe5;
 }
-
-.card-img-overlay:hover {
-  opacity: 0.2;
-  background-color: #fff;
-}
-
 /* ============================================
    BUTTONS
 ============================================ */
